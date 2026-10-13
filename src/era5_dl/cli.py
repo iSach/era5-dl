@@ -787,7 +787,7 @@ def parser():
         "--variables",
         default="default",
         type=parse_variables,
-        help="comma-separated ARCO names, or 'default' (16 variables, see README)",
+        help="comma-separated names (see the variables command), or 'default'",
     )
     group.add_argument(
         "--levels",
