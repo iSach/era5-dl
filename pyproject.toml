@@ -1,0 +1,33 @@
+[project]
+name = "era5-dl"
+version = "0.1.0"
+description = "Resumable, parallel ERA5 downloads from Google's ARCO bucket, locally or as Slurm job arrays"
+readme = "README.md"
+authors = [{ name = "Sacha Lewin", email = "sacha.lewin@uliege.be" }]
+requires-python = ">=3.11"
+dependencies = ["gcsfs", "numpy", "zarr>=3.0.8"]
+
+[project.scripts]
+era5-dl = "era5_dl.cli:main"
+
+[dependency-groups]
+dev = ["pytest", "ruff", "xarray"]
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 99
+
+[tool.ruff.lint]
+extend-select = ["B", "I", "W"]
+ignore = ["E731", "E741"]
+
+[tool.ruff.lint.isort]
+lines-between-types = 1
+relative-imports-order = "closest-to-furthest"
+section-order = ["future", "third-party", "first-party", "local-folder"]
+
+[tool.ruff.format]
+preview = true
